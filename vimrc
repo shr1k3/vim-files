@@ -5,7 +5,7 @@ set nocompatible
 
 " Include pathogen
 call pathogen#infect()
-call pathogen#helptags()
+"call pathogen#helptags()
 
 set number
 set nuw=6
