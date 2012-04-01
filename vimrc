@@ -42,11 +42,13 @@ set laststatus=2
 set statusline=%t\ %y\ format:\ %{&ff};\ [%l,%c]
 
 " Default color scheme
-set guifont=Bitstream\ Vera\ Sans\ Mono:h12
+"set guifont=Bitstream\ Vera\ Sans\ Mono:h12
+set guifont=Ubuntu\ Mono:h14
 set background=light
 let g:solarized_visibility='medium'
 let g:solarized_contrast='normal'
-color solarized
+" color solarized
+:colorscheme mustang
 
 " Context-dependent cursor in the terminal
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
