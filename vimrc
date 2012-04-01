@@ -8,6 +8,7 @@ call pathogen#infect()
 call pathogen#helptags()
 
 set number
+set nuw=6
 set ruler
 syntax on
 
@@ -20,6 +21,8 @@ let mapleader=','
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+set smarttab
+set showmatch
 set list listchars=tab:▸\ ,eol:¬,trail:·
 set noeol
 set autoindent
@@ -41,6 +44,9 @@ set modelines=10
 set laststatus=2
 set statusline=%t\ %y\ format:\ %{&ff};\ [%l,%c]
 
+" set how many lines of history vim has to retain
+set history=700
+
 " Default color scheme
 "set guifont=Bitstream\ Vera\ Sans\ Mono:h12
 set guifont=Ubuntu\ Mono:h14
@@ -61,8 +67,10 @@ set nobackup
 set nowritebackup
 
 " Persistent undos
-set undodir=~/.vim/backup
-set undofile
+if version >= 730
+  set undodir=~/.vim/backup
+  set undofile
+endif
 
 " }}}
 
@@ -73,8 +81,8 @@ set incsearch
 set ignorecase
 set smartcase
 set gdefault
-nnoremap / /\v
-vnoremap / /\v
+"nnoremap / /\v
+"vnoremap / /\v
 set grepprg=ack\ --column
 set grepformat=%f:%l:%c:%m
 
@@ -93,7 +101,7 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*.pyc,node_modul
 
 " Autoclose terminal compatibility
 if !has('gui_running')
-	let g:AutoClosePreservDotReg = 0
+  let g:AutoClosePreservDotReg = 0
 endif
 
 
@@ -122,9 +130,13 @@ endif
 "
 " load the plugin and indent settings for the detected filetype
 filetype plugin indent on
+filetype indent on
+
+" set to auto read when a file is changed from the outside
+set autoread
 
 " make uses real tabs
-au FileType make setl noexpandtab
+"au FileType make setl noexpandtab
 
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
