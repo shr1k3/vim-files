@@ -67,7 +67,7 @@ set nobackup
 set nowritebackup
 
 " Persistent undos
-if version >= 730
+if v:version >= 730
   set undodir=~/.vim/backup
   set undofile
 endif
