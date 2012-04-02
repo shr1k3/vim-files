@@ -23,7 +23,8 @@ set shiftwidth=4
 set softtabstop=4
 set smarttab
 set showmatch
-set list listchars=tab:▸\ ,eol:¬,trail:·
+"set list listchars=tab:▸\ ,eol:¬,trail:·
+set list listchars=tab:▸\ ,trail:·
 set noeol
 set autoindent
 
@@ -54,7 +55,8 @@ set background=light
 let g:solarized_visibility='medium'
 let g:solarized_contrast='normal'
 " color solarized
-:colorscheme mustang
+":colorscheme mustang
+:colorscheme chela_light
 
 " Context-dependent cursor in the terminal
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -206,6 +208,14 @@ nmap <C-Down> ]e
 " Bubble multiple lines
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
+
+" Tab configuration
+map <Leader>tn :tabnew<cr>
+map <Leader>tx :tabnext<cr>
+map <Leader>te :tabedit 
+map <Leader>tc :tabclose<cr>
+map <Leader>tm :tabmove 
+
 
 " }}}
 
