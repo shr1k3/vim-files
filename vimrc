@@ -22,6 +22,7 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set smarttab
+set expandtab
 set showmatch
 "set list listchars=tab:▸\ ,eol:¬,trail:·
 set list listchars=tab:▸\ ,trail:·
@@ -138,7 +139,7 @@ filetype indent on
 set autoread
 
 " make uses real tabs
-"au FileType make setl noexpandtab
+au FileType make setl noexpandtab
 
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
@@ -163,7 +164,7 @@ au FileType ruby setl softtabstop=2 tabstop=2 expandtab
 au FileType php setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab
 
 " Javascript settings
-au FileType javascript setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab
+au FileType javascript setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab
 
 " Coffeescript uses 2 spaces too.
 au FileType coffee setl softtabstop=2 shiftwidth=2 tabstop=2 expandtab
