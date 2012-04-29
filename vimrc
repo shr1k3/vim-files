@@ -217,6 +217,7 @@ map <Leader>te :tabedit
 map <Leader>tc :tabclose<cr>
 map <Leader>tm :tabmove 
 
+noremap <silent><Leader>/ :nohls<CR>
 
 " }}}
 
