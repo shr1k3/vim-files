@@ -2,6 +2,7 @@
 " {{{ Basic Config
 "
 set nocompatible
+filetype off
 
 " Include pathogen
 call pathogen#infect()
@@ -23,7 +24,10 @@ set shiftwidth=4
 set softtabstop=4
 set smarttab
 set expandtab
+set showmode
+set showcmd
 set showmatch
+set hidden
 "set list listchars=tab:▸\ ,eol:¬,trail:·
 set list listchars=tab:▸\ ,trail:·
 set noeol
@@ -35,8 +39,10 @@ set backspace=indent,eol,start
 " Window settings
 set wrap
 set lbr
-set textwidth=0
+set textwidth=79
 set cursorline
+set formatoptions=qrn1
+"set colorcolumn=85
 
 " Use modeline overrides
 set modeline
@@ -52,12 +58,24 @@ set history=700
 " Default color scheme
 "set guifont=Bitstream\ Vera\ Sans\ Mono:h12
 set guifont=Ubuntu\ Mono:h14
-set background=light
 let g:solarized_visibility='medium'
 let g:solarized_contrast='normal'
-" color solarized
+set background=light
+"set background=dark
+":color solarized
 ":colorscheme mustang
-:colorscheme chela_light
+":colorscheme chela_light
+":colorscheme wombat
+":colorscheme umber-green
+":colorscheme habilight
+":colorscheme professional
+":colorscheme synic
+":colorscheme molokai
+if has('gui_running')
+    :colorscheme github
+else
+    :colorscheme codeschool
+endif
 
 " Context-dependent cursor in the terminal
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
