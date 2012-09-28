@@ -50,7 +50,20 @@ set modelines=10
 
 " Status bar
 set laststatus=2
-set statusline=%t\ %y\ format:\ %{&ff};\ [%l,%c]
+"old status line
+"set statusline=%t\ %y\ format:\ %{&ff};\ [%l,%c]
+set statusline=
+set statusline +=%1*\ %n\ %*            "buffer number
+set statusline +=%5*%{&ff}%*            "file format
+set statusline +=%3*%y%*                "file type
+set statusline +=%4*\ %<%F%*            "full path
+set statusline +=%2*%m%*                "modified flag
+set statusline +=%1*%=%5l%*             "current line
+set statusline +=%2*/%L%*               "total lines
+set statusline +=%1*%4v\ %*             "virtual column number
+set statusline +=%2*0x%04B\ %*          "character under cursor"
+set statusline +=%{fugitive#statusline()}
+
 
 " set how many lines of history vim has to retain
 set history=700
@@ -150,6 +163,7 @@ endif
 " {{{ Filetypes
 "
 " load the plugin and indent settings for the detected filetype
+filetype on
 filetype plugin indent on
 filetype indent on
 
@@ -173,6 +187,11 @@ au BufNewFile,BufRead *.json set ft=javascript
 
 " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=90 expandtab
+" tab completion
+au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menuone,longest,preview
+
 au FileType rst setl textwidth=80
 
 " Make ruby use 2 spaces for indentation.
