@@ -50,7 +50,20 @@ set modelines=10
 
 " Status bar
 set laststatus=2
-set statusline=%t\ %y\ format:\ %{&ff};\ [%l,%c]
+"old status line
+"set statusline=%t\ %y\ format:\ %{&ff};\ [%l,%c]
+set statusline=
+set statusline +=%1*\ %n\ %*            "buffer number
+set statusline +=%5*%{&ff}%*            "file format
+set statusline +=%3*%y%*                "file type
+set statusline +=%4*\ %<%F%*            "full path
+set statusline +=%2*%m%*                "modified flag
+set statusline +=%1*%=%5l%*             "current line
+set statusline +=%2*/%L%*               "total lines
+set statusline +=%1*%4v\ %*             "virtual column number
+set statusline +=%2*0x%04B\ %*          "character under cursor"
+set statusline +=%{fugitive#statusline()}
+
 
 " set how many lines of history vim has to retain
 set history=700
@@ -151,6 +164,7 @@ endif
 " {{{ Filetypes
 "
 " load the plugin and indent settings for the detected filetype
+filetype on
 filetype plugin indent on
 filetype indent on
 
@@ -174,6 +188,11 @@ au BufNewFile,BufRead *.json set ft=javascript
 
 " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=90 expandtab
+" tab completion
+au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menuone,longest,preview
+
 au FileType rst setl textwidth=80
 
 " Make ruby use 2 spaces for indentation.
@@ -246,6 +265,36 @@ noremap <silent><Leader>/ :nohls<CR>
 " XML Tidying
 :command Txml :%!tidy -q -i -xml
 
+" }}}
+
+" {{{ Pylint
+"Open vim quickfix_ window if problems be find ::
+let g:PyLintCWindow = 1
+"Place signs with errors ::
+let g:PyLintSigns = 1
+"Run pylint on buffer write ::
+let g:PyLintOnWrite = 1
+"Disable PyLint messages ::
+"let g:PyLintDissabledMessages = 'C0103,C0111,C0301,W0141,W0142,W0212,W0221,W0223,W0232,W0401,W0613,W0631,E1101,E1120,R0903,R0904,R0913'
+" }}}
+
+" {{{ PEP8
+" run pep8 syntax checker
+let g:pep8_map='<leader>8'
+" }}}
+
+" {{{ Virtualenv
+" Add the virtualenv's site-packages to vim path
+py << EOF
+import os.path
+import sys
+import vim
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    sys.path.insert(0, project_base_dir)
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
 " }}}
 
 " {{{ Plugin config
