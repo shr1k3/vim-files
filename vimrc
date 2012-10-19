@@ -57,7 +57,8 @@ set history=700
 
 " Default color scheme
 "set guifont=Bitstream\ Vera\ Sans\ Mono:h12
-set guifont=Ubuntu\ Mono:h14
+set guifont=Ubuntu\ Mono\ 12
+set background=light
 let g:solarized_visibility='medium'
 let g:solarized_contrast='normal'
 set background=light
