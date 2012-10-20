@@ -1,4 +1,8 @@
 " vim: foldmethod=marker :
+set foldmethod=indent
+set foldlevel=99
+
+"
 " {{{ Basic Config
 "
 set nocompatible
@@ -86,7 +90,14 @@ set background=light
 ":colorscheme synic
 ":colorscheme molokai
 if has('gui_running')
-    :colorscheme github
+    ":colorscheme github
+    ":colorscheme pablo
+    :colorscheme codeschool
+    "turn off ugly toolbar
+    "set guioptions=egmrt
+    set guioptions-=T
+    "set pct transparency
+    "set transparency=10
 else
     :colorscheme codeschool
 endif
