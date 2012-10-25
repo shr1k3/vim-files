@@ -158,10 +158,10 @@ set noequalalways
 " {{{ Autocommands
 "
 " Save on blur
-au FocusLost * :wa
+"au FocusLost * :wa
 
 " Save on blur for terminal vim
-au CursorHold,CursorHoldI * silent! wa
+"au CursorHold,CursorHoldI * silent! wa
 
 " Remember last location in file
 if has("autocmd")
