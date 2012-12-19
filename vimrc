@@ -72,6 +72,9 @@ set statusline +=%{fugitive#statusline()}
 " set how many lines of history vim has to retain
 set history=700
 
+" make 256 colors work from Ubuntu
+set t_Co=256
+
 " Default color scheme
 "set guifont=Bitstream\ Vera\ Sans\ Mono:h12
 set guifont=Ubuntu\ Mono\ 12
