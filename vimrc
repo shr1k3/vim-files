@@ -338,6 +338,9 @@ imap <Leader>/ <Esc><plug>NERDCommenterToggle<CR>i
 " Command-T configuration
 let g:CommandTMaxHeight=20
 
+" Ctrlp
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
 " RagTag
 let g:ragtag_global_maps = 1
 
