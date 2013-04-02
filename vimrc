@@ -67,8 +67,6 @@ set statusline +=%2*/%L%*               "total lines
 set statusline +=%1*%4v\ %*             "virtual column number
 set statusline +=%2*0x%04B\ %*          "character under cursor"
 set statusline +=%{fugitive#statusline()}
-
-
 " set how many lines of history vim has to retain
 set history=700
 
@@ -76,26 +74,25 @@ set history=700
 set t_Co=256
 
 " Default color scheme
-"set guifont=Bitstream\ Vera\ Sans\ Mono:h12
-set guifont=Ubuntu\ Mono\ 12
-set background=light
-let g:solarized_visibility='medium'
-let g:solarized_contrast='normal'
-set background=light
+"set guifont=Bitstream\ Vera\ Sans\ Mono:h14
+set guifont=Ubuntu\ Mono:14
+"let g:solarized_visibility='medium'
+"let g:solarized_contrast='normal'
+"set background=light
 "set background=dark
-":color solarized
 ":colorscheme mustang
 ":colorscheme chela_light
 ":colorscheme wombat
 ":colorscheme umber-green
-":colorscheme habilight
 ":colorscheme professional
+":color solarized
 ":colorscheme synic
-":colorscheme molokai
 if has('gui_running')
     ":colorscheme github
     ":colorscheme pablo
     :colorscheme codeschool
+    ":colorscheme molokai
+    "colorscheme habilight
     "turn off ugly toolbar
     "set guioptions=egmrt
     set guioptions-=T
@@ -103,6 +100,12 @@ if has('gui_running')
     "set transparency=10
 else
     :colorscheme codeschool
+endif
+
+if v:version >= 700
+  highlight statusLine cterm=bold ctermfg=black ctermbg=red
+  au InsertLeave * highlight StatusLine cterm=bold ctermfg=black ctermbg=red guibg=black guifg=red
+  au InsertEnter * highlight StatusLine cterm=bold ctermfg=black ctermbg=green guibg=black guifg=green
 endif
 
 " Context-dependent cursor in the terminal
