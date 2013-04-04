@@ -90,21 +90,27 @@ set guifont=Ubuntu\ Mono:14
 if has('gui_running')
     ":colorscheme github
     ":colorscheme pablo
-    :colorscheme codeschool
+    ":colorscheme codeschool
     ":colorscheme molokai
     "colorscheme habilight
+    :colorscheme summerfruit256
     "turn off ugly toolbar
     "set guioptions=egmrt
     set guioptions-=T
     "set pct transparency
-    "set transparency=10
+    set transparency=10
+    set guifont=Ubuntu\ Mono:18
 else
-    :colorscheme codeschool
+    ":colorscheme codeschool
+    :colorscheme summerfruit256
 endif
 
 if v:version >= 700
-  highlight statusLine cterm=bold ctermfg=black ctermbg=red
-  au InsertLeave * highlight StatusLine cterm=bold ctermfg=black ctermbg=red guibg=black guifg=red
+  let s:saved_statusline = &statusline
+  "highlight statusLine cterm=bold ctermfg=black ctermbg=red
+  "au InsertLeave * highlight StatusLine cterm=bold ctermfg=black ctermbg=red guibg=black guifg=red
+  " the following InsertLeave is for summerfruit256 theme
+  au InsertLeave * highlight StatusLine term=bold,reverse cterm=bold ctermfg=231 ctermbg=41 gui=bold guifg=#ffffff guibg=#43c464
   au InsertEnter * highlight StatusLine cterm=bold ctermfg=black ctermbg=green guibg=black guifg=green
 endif
 
