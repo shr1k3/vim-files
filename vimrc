@@ -105,6 +105,10 @@ else
     :colorscheme summerfruit256
 endif
 
+if has('unix')
+    set guifont=Ubuntu\ Mono\ 14
+endif
+
 if v:version >= 700
   let s:saved_statusline = &statusline
   "highlight statusLine cterm=bold ctermfg=black ctermbg=red
