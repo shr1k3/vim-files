@@ -75,7 +75,6 @@ set t_Co=256
 
 " Default color scheme
 "set guifont=Bitstream\ Vera\ Sans\ Mono:h14
-set guifont=Ubuntu\ Mono:h14
 "let g:solarized_visibility='medium'
 "let g:solarized_contrast='normal'
 "set background=light
@@ -99,14 +98,14 @@ if has('gui_running')
     set guioptions-=T
     "set pct transparency
     set transparency=10
-    set guifont=Ubuntu\ Mono:h14
+    if has("mac")
+        set guifont=Ubuntu\ Mono:h14
+    elseif has("unix")
+        set guifont=Ubuntu\ Mono\ 14
+    endif
 else
     ":colorscheme codeschool
     :colorscheme summerfruit256
-endif
-
-if has('unix')
-    set guifont=Ubuntu\ Mono\ 14
 endif
 
 if v:version >= 700
