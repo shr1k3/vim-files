@@ -91,21 +91,22 @@ if has('gui_running')
     ":colorscheme pablo
     ":colorscheme codeschool
     ":colorscheme molokai
-    "colorscheme habilight
-    :colorscheme summerfruit256
+    ":colorscheme habilight
+    :colorscheme asu1dark
     "turn off ugly toolbar
     "set guioptions=egmrt
     set guioptions-=T
     "set pct transparency
-    set transparency=10
+    set transparency=0
     if has("mac")
-        set guifont=Ubuntu\ Mono:h14
+        set guifont=Ubuntu\ Mono:h16
     elseif has("unix")
         set guifont=Ubuntu\ Mono\ 14
     endif
 else
     ":colorscheme codeschool
-    :colorscheme summerfruit256
+    ":colorscheme summerfruit256
+    :colorscheme mustang
 endif
 
 if v:version >= 700
@@ -308,6 +309,11 @@ let g:PyLintOnWrite = 0
 " {{{ Flake8
 "nmap <leader>p :call Flake8()<CR>:redraw!<CR>
 nmap <leader>p :call Flake8()<CR>
+let g:PyFlakeCheckers = 'pep8,mccabe,pyflakes'
+let g:PyFlakeDefaultComplexity=10
+"let g:PyFlakeDisabledMessages = 'E501'
+"let g:PyFlakeCWindow = 6
+"let g:PyFlakeSigns = 1
 " }}}
 
 " {{{ PEP8
