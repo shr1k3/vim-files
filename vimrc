@@ -92,16 +92,18 @@ if has('gui_running')
     ":colorscheme codeschool
     ":colorscheme molokai
     ":colorscheme habilight
-    :colorscheme asu1dark
     "turn off ugly toolbar
     "set guioptions=egmrt
     set guioptions-=T
     "set pct transparency
     set transparency=0
+    :colorscheme asu1dark
     if has("mac")
+        :colorscheme codeschool
         set guifont=Ubuntu\ Mono:h16
     elseif has("unix")
         set guifont=Ubuntu\ Mono\ 14
+    else
     endif
 else
     ":colorscheme codeschool
