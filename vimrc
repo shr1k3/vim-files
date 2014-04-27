@@ -377,3 +377,6 @@ let g:syntastic_phpcs_disable=1
 
 " MacVIM shift+arrow-keys behavior (required in .vimrc)
 let macvim_hig_shift_movement = 1
+
+" disable auto installation of binaries
+let g:go_disable_autoinstall = 1
