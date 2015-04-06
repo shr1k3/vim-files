@@ -91,15 +91,17 @@ if has('gui_running')
     ":colorscheme pablo
     ":colorscheme codeschool
     ":colorscheme molokai
+    ":colorscheme asu1dark
+
     ":colorscheme habilight
+    :colorscheme mustang
+
     "turn off ugly toolbar
     "set guioptions=egmrt
     set guioptions-=T
     "set pct transparency
     set transparency=0
-    :colorscheme asu1dark
     if has("mac")
-        :colorscheme codeschool
         set guifont=Ubuntu\ Mono:h16
     elseif has("unix")
         set guifont=Ubuntu\ Mono\ 14
@@ -217,6 +219,7 @@ au BufNewFile,BufRead *.json set ft=javascript
 
 " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=90 expandtab
+
 " tab completion
 au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
@@ -228,7 +231,10 @@ au FileType rst setl textwidth=80
 au FileType ruby setl softtabstop=2 tabstop=2 expandtab
 
 " PHP settings
-au FileType php setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab
+au FileType php setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab
+
+" erlang settings
+au FileType erlang setl textwidth=80 softtabstop=2 shiftwidth=2 tabstop=2 expandtab
 
 " Javascript settings
 au FileType javascript setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab
@@ -313,9 +319,10 @@ let g:PyLintOnWrite = 0
 nmap <leader>p :call Flake8()<CR>
 let g:PyFlakeCheckers = 'pep8,mccabe,pyflakes'
 let g:PyFlakeDefaultComplexity=10
+let g:PyFlakeMaxLineLength = 100
 "let g:PyFlakeDisabledMessages = 'E501'
 "let g:PyFlakeCWindow = 6
-"let g:PyFlakeSigns = 1
+let g:PyFlakeSigns = 1
 " }}}
 
 " {{{ PEP8
