@@ -133,7 +133,7 @@ set nobackup
 set nowritebackup
 
 " Persistent undos
-if v:version >= 730
+if !&diff
   set undodir=~/.vim/backup
   set undofile
 endif
@@ -289,6 +289,11 @@ map <Leader>tx :tabnext<cr>
 map <Leader>te :tabedit 
 map <Leader>tc :tabclose<cr>
 map <Leader>tm :tabmove 
+
+" Mouse scrolling in a terminal
+set mouse=a
+map <ScrollWheelUp> <C-E>
+map <ScrollWheelDown> <C-Y>
 
 noremap <silent><Leader>/ :nohls<CR>
 
